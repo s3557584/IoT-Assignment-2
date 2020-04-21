@@ -1,34 +1,37 @@
+from DatabaseUtil import DatabaseUtil
 import MySQLdb
-
-class Authentication:
-    #Constructor
+dbUtilObj = DatabaseUtil()
+class Menu:
+	
+	# Constructor
     def __init__(self):
         pass
-    #Login function
-    def Login(self):
+        
+    # Login function (Entry point of the program)
+    def LoginMenu(self):
 		while True:
-            #Prompt user input for ID and Password
+			
+			#Prompt user input for ID and Password
 			username = raw_input("Enter you username: ")
 			password = raw_input("Please enter your password:")
-			#Connect to database
-			dbconn = MySQLdb.connect("35.189.29.67","root","password","IoTAssignment2") or die("could not connect to database")
-			cursor = dbconn.cursor()
-            #SQL Query for authenticate credentials
-			authenticate_user = ("SELECT * FROM users WHERE username = (%s) AND password = (%s)")
-			cursor.execute(authenticate_user,[(username),(password)])			
 			
-            # fetch all of the rows from the query
-			results = cursor.fetchall ()
-			# If ID and Password matches 
+			# Calling authenticate function from DatabaseUtil class and stores the result to the variable
+			results = dbUtilObj.authenticate(username, password)
+			
+			# If ID and Password matches
 			if results:
 				for i in results:
 					print("Welcome "+i[2])
-                    # Calls the main menu
-                    self.Menu()
+					
+					# Closes the DB connection
+					dbUtilObj.close()
+					
+					# Calls the main menu
+					self.Menu()	
 			else:
 				print("Incorrect username or password")
 	
-    #Main Menu function			
+	# Menu function			
     def Menu(self):
 		print("************WELCOME**************")
 		choice = raw_input("""A: Booked Cars

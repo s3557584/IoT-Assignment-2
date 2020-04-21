@@ -1,4 +1,4 @@
-from Authentication import Authentication
+from Menu import Menu
 
-obj = Authentication()
-obj.Login()
+obj = Menu()
+obj.LoginMenu()
