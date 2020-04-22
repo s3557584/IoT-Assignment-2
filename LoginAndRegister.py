@@ -44,3 +44,6 @@ class LoginAndRegister:
                                       100000)
         pwdhash = binascii.hexlify(pwdhash).decode('ascii')
         return pwdhash == stored_password 
+    
+    def newUser:
+        
