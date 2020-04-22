@@ -1,4 +1,5 @@
 import MySQLdb
+import hashlib, binascii, os
 
 class DatabaseUtil:
     HOST = "35.189.29.67"
@@ -20,13 +21,6 @@ class DatabaseUtil:
     # Function to close the database connection
     def close(self):
         self.connection.close()
-    
-    # Function to authenticate user logging in
-    def authenticate(self, username, password):
-        with self.connection.cursor() as cursor:
             
-            # Executing SQL query to authenticate user
-            cursor.execute("SELECT * FROM users WHERE username = (%s) AND password = (%s)", [(username),(password)])
             
-            # Return the results fetched from the query
-            return cursor.fetchall()
+            

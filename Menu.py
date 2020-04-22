@@ -1,33 +1,25 @@
 from DatabaseUtil import DatabaseUtil
-import MySQLdb
-dbUtilObj = DatabaseUtil()
+from LoginAndRegister import LoginAndRegister
+utilsObj = DatabaseUtil()
+loginAndRegisterObj = LoginAndRegister()
 class Menu:
 	
 	# Constructor
     def __init__(self):
         pass
         
-    # Login function (Entry point of the program)
-    def LoginMenu(self):
+    # Start function (Entry point of the program)
+    def Start(self):
 		while True:
 			
-			#Prompt user input for ID and Password
-			username = raw_input("Enter you username: ")
-			password = raw_input("Please enter your password:")
-			
-			# Calling authenticate function from DatabaseUtil class and stores the result to the variable
-			results = dbUtilObj.authenticate(username, password)
-			
 			# If ID and Password matches
-			if results:
-				for i in results:
-					print("Welcome "+i[2])
-					
-					# Closes the DB connection
-					dbUtilObj.close()
-					
-					# Calls the main menu
-					self.Menu()	
+			if loginAndRegisterObj.authenticate() == True:
+				
+				# Closes the DB connection
+				utilsObj.close()
+				
+				# Calls the main menu
+				self.Menu()	
 			else:
 				print("Incorrect username or password")
 	
