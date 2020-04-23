@@ -45,5 +45,33 @@ class LoginAndRegister:
         pwdhash = binascii.hexlify(pwdhash).decode('ascii')
         return pwdhash == stored_password 
     
-    def newUser:
+    def newUser():
+        found = 0
+        while found == 0:
+            username = input ("Please enter a user: ")
+            with utilsObj.connection.cursor() as cursor:
+            
+            # Executing SQL query to authenticate user
+            cursor.execute("SELECT * FROM users WHERE username = (%s)", [(username)])
+
+            if cursor.fatchall():
+                print("Username Taken, please try again")
+            else:
+                found = 1
+        
+        firstnmae = input("Enter your first nmae:")
+        surnmane = input("Enter your surname: ")
+        password = input("please enter your password: ")
+        password1 = input("please reneter your pssword")
+        while password != password1:
+            print("Your passwords didn't match, please try again ")
+            password = input("please enter your password: ")
+            password1 = input("please reneter your pssword")
+        
+        insertData = ''' INSERT INTO users(username,firstnme,surname,password)VALUES(?,?,?,?)'''
+        cursor.execute(insertData,[(username),(firstnmae),(surnmane),(password)])
+        db.commit()
+
+
+
         
