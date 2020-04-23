@@ -51,7 +51,6 @@ class LoginAndRegister:
             username = input ("Please enter a user: ")
             with utilsObj.connection.cursor() as cursor:
             
-            # Executing SQL query to authenticate user
             cursor.execute("SELECT * FROM users WHERE username = (%s)", [(username)])
 
             if cursor.fatchall():
