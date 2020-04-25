@@ -45,15 +45,13 @@ class LoginAndRegister:
         pwdhash = binascii.hexlify(pwdhash).decode('ascii')
         return pwdhash == stored_password 
     
-    def newUser():
+    def newUser(self):
         found = 0
         while found == 0:
-            username = input ("Please enter a user: ")
+            username = input ("Please enter a username: ")
             with utilsObj.connection.cursor() as db:
                 cursor = db.cursor()
-            findUser = ("SELECT * FROM user WHERE username = ?")
-                
-            cursor.execute(finduser, [(username)])
+            cursor.execute("SELECT * FROM user WHERE username = ?", [(username)])
 
             if cursor.fatchall():
                 print("Username Taken, please try again")
