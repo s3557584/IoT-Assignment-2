@@ -49,9 +49,11 @@ class LoginAndRegister:
         found = 0
         while found == 0:
             username = input ("Please enter a user: ")
-            with utilsObj.connection.cursor() as cursor:
+            with utilsObj.connection.cursor() as db:
+                cursor = db.cursor()
+            findUser = ("SELECT * FROM user WHERE username = ?")
                 
-            cursor.execute("SELECT * FROM users WHERE username = (%s)", [(username)])
+            cursor.execute(finduser, [(username)])
 
             if cursor.fatchall():
                 print("Username Taken, please try again")
