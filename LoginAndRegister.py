@@ -50,7 +50,7 @@ class LoginAndRegister:
         while found == 0:
             username = input ("Please enter a user: ")
             with utilsObj.connection.cursor() as cursor:
-            
+                
             cursor.execute("SELECT * FROM users WHERE username = (%s)", [(username)])
 
             if cursor.fatchall():
