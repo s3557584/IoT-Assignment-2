@@ -8,11 +8,9 @@ class LoginAndRegister:
         pass
         
 	# Function to authenticate user logging in
-    def authenticate(self):
+    def authenticate(self, username, password):
         status = False 
         encrypted_password = ""
-        username = raw_input("Enter you username: ")
-        password = raw_input("Please enter your password:")
         
         with utilsObj.connection.cursor() as cursor:
             
@@ -29,9 +27,7 @@ class LoginAndRegister:
             # If match returns true so that user is logged in.
             if self.verify_password(encrypted_password, password):
                 status = True
-                for i in results:
-                    print("Welcome " + i[2])
-                    
+                utilsObj.close()
             return status
             
     # Function to verify encrypted password

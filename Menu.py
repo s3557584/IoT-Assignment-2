@@ -3,7 +3,6 @@ from LoginAndRegister import LoginAndRegister
 utilsObj = DatabaseUtil()
 loginAndRegisterObj = LoginAndRegister()
 class Menu:
-	
 	# Constructor
     def __init__(self):
         pass
@@ -11,12 +10,12 @@ class Menu:
     # Start function (Entry point of the program)
     def Start(self):
 		while True:
-			
+			global username 
+			username = raw_input("Enter you username: ")
+			password = raw_input("Please enter your password:")
 			# If ID and Password matches
-			if loginAndRegisterObj.authenticate() == True:
-				
-				# Closes the DB connection
-				utilsObj.close()
+			if loginAndRegisterObj.authenticate(username, password) == True:
+				print("Welcome " + username)
 				
 				# Calls the main menu
 				self.Menu()	
@@ -26,22 +25,23 @@ class Menu:
 	# Menu function			
     def Menu(self):
 		print("************WELCOME**************")
-		choice = raw_input("""A: Booked Cars
-B: Available Cars
-C: Search Car
-D: Book a Car
-E: Cancel a Booking
-Q: Quit
-Please enter your choice: """)
+		choice = raw_input("""A: Booked Cars\nB: Available Cars\nC: Search Car\nD: Book a Car\nE: Cancel a Booking\nQ: Quit\nPlease enter your choice: """)
 
 		if choice == "A" or choice == "a":
-			print("A")
+			print("List of cars you are currently renting")
+			getVehicleResult = utilsObj.getVehicle(username)
+			for i in getVehicleResult:
+				print(i[0]+" "+i[1])
+			print("")
 			self.Menu()
 		elif choice == "B" or choice == "b":
-			print("B")
 			self.Menu()
 		elif choice == "C" or choice == "c":
-			print("C")
+			search = raw_input("Enter Keyword: ")
+			searchVehicleResult = utilsObj.searchVehicle(search)
+			for i in searchVehicleResult:
+				print(i[1]+" "+i[2])
+			print("")
 			self.Menu()
 		elif choice == "D" or choice == "d":
 			print("D")
@@ -50,8 +50,10 @@ Please enter your choice: """)
 			print("E")
 			self.Menu()
 		elif choice == "Q" or choice == "q":
+			utilsObj.close()
 			sys.exit
 		else:
 			print("You must only select either A,B,C,D or E.")
 			print("Please try again")
 			self.Menu()
+	
