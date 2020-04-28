@@ -21,6 +21,14 @@ class DatabaseUtil:
     # Function to close the database connection
     def close(self):
         self.connection.close()
+
+    def check_if_user_exists(self,username):
+        cur = self.con.cursor()
+        cur.execute("SELECT * FROM users WHERE username = (%s)", [(username)])
+        result = cur.fetchone()[0]
+        if result == 0:
+            return False
+        return True
             
             
             
