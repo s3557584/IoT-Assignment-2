@@ -30,5 +30,11 @@ class DatabaseUtil:
             return False
         return True
             
-            
+    def search(self, query):
+        cur = self.con.cursor()
+        search_str = '%' + query + '%'
+        cur.execute('SELECT * FROM Car '
+                    'WHERE Make LIKE %s OR Model LIKE %s OR Year LIKE %s',
+                    (search_str, search_str, search_str))
+        return cur.fetchall()
             
