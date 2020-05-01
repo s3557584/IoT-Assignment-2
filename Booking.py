@@ -5,6 +5,8 @@ import tkinter.messagebox
 import sqlite3
 
 utilsObj = DatabaseUtil()
+with utilsObj.connection.cursor() as db:
+cursor = db.cursor()
 
 class Application:
     def __init__(self, master):
@@ -30,7 +32,7 @@ class Application:
         # execute sql 
 
         sql = "SELECT * FROM appointments WHERE name LIKE ?"
-        self.res = c.execute(sql, (self.input,))
+        self.res = cursor.execute(sql, (self.input,))
         for self.row in self.res:
             self.name1 = self.row[1]
             self.age = self.row[2]
@@ -100,14 +102,14 @@ class Application:
         self.var6 = self.ent6.get() #updated time
 
         query = "UPDATE appointments SET name=?, age=?, gender=?, location=?, phone=?, scheduled_time=? WHERE name LIKE ?"
-        c.execute(query, (self.var1, self.var2, self.var3, self.var4, self.var5, self.var6, self.namenet.get(),))
-        conn.commit()
+        cursor.execute(query, (self.var1, self.var2, self.var3, self.var4, self.var5, self.var6, self.namenet.get(),))
+        db.commit()
         tkinter.messagebox.showinfo("Updated", "Successfully Updated.")
     def delete_db(self):
         # delete the appointment
         sql2 = "DELETE FROM appointments WHERE name LIKE ?"
-        c.execute(sql2, (self.namenet.get(),))
-        conn.commit()
+        cursor.execute(sql2, (self.namenet.get(),))
+        db.commit()
         tkinter.messagebox.showinfo("Success", "Deleted Successfully")
         self.ent1.destroy()
         self.ent2.destroy()

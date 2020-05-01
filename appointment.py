@@ -7,6 +7,7 @@ import tkinter.messagebox
 utilsObj = DatabaseUtil()
 
 # cursor to move around the databse
+with utilsObj.connection.cursor() as db:
 cursor = db.cursor()
 
 # empty list to later append the ids from the database
