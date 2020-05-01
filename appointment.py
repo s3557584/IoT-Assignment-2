@@ -7,7 +7,7 @@ import tkinter.messagebox
 utilsObj = DatabaseUtil()
 
 # cursor to move around the databse
-c = conn.cursor()
+cursor = db.cursor()
 
 # empty list to later append the ids from the database
 ids = []
@@ -26,7 +26,7 @@ class Application:
 
         # labels for the window
         self.heading = Label(self.left, text="Car Booking", font=(
-            'georgia 40 bold'), fg='black', bg='grey')
+            'georgia 40 bold'), fg='bldback', bg='grey')
         self.heading.place(x=0, y=0)
         # patients name
         self.name = Label(self.left, text="Owner's Name", font=(
@@ -120,7 +120,7 @@ class Application:
             sql = "INSERT INTO 'appointments' (name, age, gender, location, scheduled_time, phone) VALUES(?, ?, ?, ?, ?, ?)"
             c.execute(sql, (self.val1, self.val2, self.val3,
                             self.val4, self.val5, self.val6))
-            conn.commit()
+            db.commit()
             tkinter.messagebox.showinfo(
                 "Success", "Booking for " + str(self.val1) + " has been created")
             self.box.insert(END, 'Booking fixed for ' +
