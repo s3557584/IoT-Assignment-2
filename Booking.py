@@ -9,7 +9,7 @@ from google.auth.transport.requests import Request
 
 utilsObj = DatabaseUtil()
 class Booking:
-    def makeBooking():
+    def makeBooking(self):
         #connecting to database
         with utilsObj.connection.cursor() as db:
                 cursor = db.cursor()
