@@ -1,183 +1,124 @@
 from DatabaseUtil import DatabaseUtil
-from __future__ import print_function
-import datetime
-import pickle
-import os.path
-from googleapiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
+# update the appointments
+from tkinter import *
+import tkinter.messagebox 
+import sqlite3
 
-utilsObj = DatabaseUtil()
-class Booking:
-    def makeBooking(self):
-        #connecting to database
-        with utilsObj.connection.cursor() as db:
-                cursor = db.cursor()
-        print()
-        for Num,Name,Price in treatmentlist: 
-            print(Num,Name,"=",Price)
-        print()
-    
-    validtreatment = False
-    while validtreatment == False:
-        try:
-            treatmentchoice = input("Which treatment would you like to book? Please choose a number from the list above: ")
-            if treatmentchoice == "quit" or treatmentchoice == "Quit" or treatmentchoice == "QUIT":
-                return
-            elif int(treatmentchoice) < 1 or int(treatmentchoice) > 27:
-                 print("This number is not on the list.")
-            else:
-                treatment = treatmentlist[int(treatmentchoice) - 1]
-                validtreatment = True
-        except:
-            print("Please enter a valid number.")
+conn = sqlite3.connect('database.db')
+c = conn.cursor()
 
-            
-    print()
-    print("Here are the available booking dates")
-    print()
-    for Num,Day in weekdays: 
-        print(Num,Day)
-    print()
-    
-    validday = False
-    while validday == False:
-        try:
-            daychoice = input("Which day is best for you? ")
-            if daychoice == "quit" or daychoice == "Quit" or daychoice == "QUIT":
-                return
-            elif int(daychoice) < 1 or int(daychoice) > 7:
-                 print("This number is not on the list.")
-            else:
-                weekday = weekdays[int(daychoice) - 1]
-                validday = True
-        except:
-            print("Please enter a valid number.")
+class Application:
+    def __init__(self, master):
+        self.master = master
+        # heading label
+        self.heading = Label(master, text="Bookings ",  fg='grey', font=('arial 40 bold'))
+        self.heading.place(x=150, y=20)
 
-            
-    if str(weekday[1]) == "Monday":
-        whichdates = mondaydates
-    elif str(weekday[1]) == "Tuesday":
-        whichdates = tuesdaydates
-    elif str(weekday[1]) == "Wednesday":
-        whichdates = wednesdaydates
-    elif str(weekday[1]) == "Thursday":
-        whichdates = thursdaydates
-    elif str(weekday[1]) == "Friday":
-        whichdates = fridaydates
-    elif str(weekday[1]) == "Saturday":
-        whichdates = saturdaydates
-    elif str(weekday[1]) == "Sunday":
-        whichdates = sundaydates
+        # search criteria -->name 
+        self.name = Label(master, text="Enter Owner's Name", font=('arial 18 bold'))
+        self.name.place(x=0, y=100)
 
-        
-    print()
-    print("Here are the dates for " , str(weekday[1]))
-    print()
-    
-    for Num,Day in whichdates: 
-        print(Num,Day)
-    print()
-    
-    validdate = False
-    while validdate == False:
-        try:
-            datechoice = input("Which date would suit you best? ")
-            if datechoice == "quit" or datechoice == "Quit" or datechoice == "QUIT":
-                return
-            elif int(datechoice) < 1 or int(datechoice) > 7:
-                 print("This number is not on the list.")
-            else:
-                date = whichdates[int(datechoice) - 1]
-                validdate = True
-        except:
-            print("Please enter a valid number.")
+        # entry for  the name
+        self.namenet = Entry(master, width=30)
+        self.namenet.place(x=280, y=92)
 
-            
-    print()
-    print("Here are the times for " , str(weekday[1]),"," , str(date[1]))
-    print()
-    
-    for Num,Time in times: 
-        print(Num,Time)
-    print()
-    validtime = False
-    while validtime == False:
-        try:
-            timechoice = input("Which time would you like? ")
-            if timechoice == "quit" or timechoice == "Quit" or timechoice == "QUIT":
-                return
-            elif int(timechoice) < 1 or int(timechoice) > 15:
-                 print("This number is not on the list.")
-            else:
-                time = times[int(timechoice) - 1]
-                booktest = (str(date[1]), str(time[1]))
-                if booktest in booktestlist:
-                    print("Sorry, someone has already taken that time.")
-                    validtime = False
-                else:
-                    validtime = True
-        except:
-            print("Please enter the number of the time you would like.")    
+        # search button
+        self.search = Button(master, text="Search", width=12, height=1, bg='steelblue', command=self.search_db)
+        self.search.place(x=350, y=132)
+    # function to search
+    def search_db(self):
+        self.input = self.namenet.get()
+        # execute sql 
 
-    validemail = False
-    while validemail == False:
-        try:
-            email = input("Please enter your email address so that I can contact you: ")
-            if "@" not in email:
-                print("This is not a valid email.")
-            else:
-                validemail = True
-        except:
-            print("Please try again.")
+        sql = "SELECT * FROM appointments WHERE name LIKE ?"
+        self.res = c.execute(sql, (self.input,))
+        for self.row in self.res:
+            self.name1 = self.row[1]
+            self.age = self.row[2]
+            self.gender = self.row[3]
+            self.location = self.row[4]
+            self.time = self.row[6]
+            self.phone = self.row[5]
+        # creating the update form
+        self.uname = Label(self.master, text="Owner's Name", font=('arial 18 bold'))
+        self.uname.place(x=0, y=160)
 
-    booking = (name , str(treatment[1]) , str(weekday[1]) , str(date[1]) , str(time[1]) , email)
+        self.uage = Label(self.master, text="Age", font=('arial 18 bold'))
+        self.uage.place(x=0, y=200)
 
-    confirmedbook = False
-    while confirmedbook == False:
-        try:
-            print("Here is your booking:")
-            print(booking)
-            confirm = input("Is this booking correct? Please confirm. Y/N ")
-            if confirm == "N" or confirm == "n" or confirm == "No" or confirm == "NO" or confirm == "no":
-                return
-            elif confirm == "Y" or confirm == "y" or confirm == "Yes" or confirm == "YES" or confirm == "yes":
-                confirmedbook = True
-                booktestlist.append(booktest)
-                if booking not in bookings:
-                    bookings.append(booking)
-                    duplicatelist.append(booking)
-                else:
-                    print("That seems to be a duplicate.")
-            else:
-                print("That isn't a valid answer.")
-                continue
-        except:
-            print()
+        self.ugender = Label(self.master, text="Gender", font=('arial 18 bold'))
+        self.ugender.place(x=0, y=240)
 
-    showBookings()
+        self.ulocation = Label(self.master, text="Location", font=('arial 18 bold'))
+        self.ulocation.place(x=0, y=280)
 
-def endAnswer():
-    ValidEndAnswer = False
-    while ValidEndAnswer == False:
-        endquestion = input("Would you like to make another booking? Y/N ")
-        if endquestion == "N" or endquestion == "n" or endquestion == "No" or endquestion == "NO" or endquestion == "no":
-            raise SystemExit()
-        elif endquestion == "Y" or endquestion == "y" or endquestion == "Yes" or endquestion == "YES" or endquestion == "yes":
-            ValidEndAnswer = True
-        else:
-            print("That isn't a valid answer.")
-            continue
-            
-def showBookings():
-    print()
-    print("Here are the current bookings:")
-    count = 0
-    while count < len(bookings):
-        print(bookings[count])
-        count = count + 1
-    if len(bookings) == 0:
-        print("No bookings currently set.")
-        print()
-        
-    
+        self.utime = Label(self.master, text="Entry Time", font=('arial 18 bold'))
+        self.utime.place(x=0, y=320)
+
+        self.uphone = Label(self.master, text="Phone Number", font=('arial 18 bold'))
+        self.uphone.place(x=0, y=360)
+
+        # entries for each labels==========================================================
+        # ===================filling the search result in the entry box to update
+        self.ent1 = Entry(self.master, width=30)
+        self.ent1.place(x=300, y=170)
+        self.ent1.insert(END, str(self.name1))
+
+        self.ent2 = Entry(self.master, width=30)
+        self.ent2.place(x=300, y=210)
+        self.ent2.insert(END, str(self.age))
+
+        self.ent3 = Entry(self.master, width=30)
+        self.ent3.place(x=300, y=250)
+        self.ent3.insert(END, str(self.gender))
+
+        self.ent4 = Entry(self.master, width=30)
+        self.ent4.place(x=300, y=290)
+        self.ent4.insert(END, str(self.location))
+
+        self.ent5 = Entry(self.master, width=30)
+        self.ent5.place(x=300, y=330)
+        self.ent5.insert(END, str(self.time))
+
+        self.ent6 = Entry(self.master, width=30)
+        self.ent6.place(x=300, y=370)
+        self.ent6.insert(END, str(self.phone))
+
+        # button to execute update
+        self.update = Button(self.master, text="Update?", width=20, height=2,fg='white', bg='black', command=self.update_db)
+        self.update.place(x=400, y=410)
+
+        # button to delete
+        self.delete = Button(self.master, text="Delete?", width=20, height=2,fg='white', bg='black', command=self.delete_db)
+        self.delete.place(x=150, y=410)
+    def update_db(self):
+        # declaring the variables to update
+        self.var1 = self.ent1.get() #updated name
+        self.var2 = self.ent2.get() #updated age
+        self.var3 = self.ent3.get() #updated gender
+        self.var4 = self.ent4.get() #updated location
+        self.var5 = self.ent5.get() #updated phone
+        self.var6 = self.ent6.get() #updated time
+
+        query = "UPDATE appointments SET name=?, age=?, gender=?, location=?, phone=?, scheduled_time=? WHERE name LIKE ?"
+        c.execute(query, (self.var1, self.var2, self.var3, self.var4, self.var5, self.var6, self.namenet.get(),))
+        conn.commit()
+        tkinter.messagebox.showinfo("Updated", "Successfully Updated.")
+    def delete_db(self):
+        # delete the appointment
+        sql2 = "DELETE FROM appointments WHERE name LIKE ?"
+        c.execute(sql2, (self.namenet.get(),))
+        conn.commit()
+        tkinter.messagebox.showinfo("Success", "Deleted Successfully")
+        self.ent1.destroy()
+        self.ent2.destroy()
+        self.ent3.destroy()
+        self.ent4.destroy()
+        self.ent5.destroy()
+        self.ent6.destroy()
+# creating the object
+root = Tk()
+b = Application(root)
+root.geometry("1366x768+0+0")
+root.resizable(False, False)
+root.mainloop()
