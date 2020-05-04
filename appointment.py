@@ -85,7 +85,7 @@ class Application:
 
         # getting the number of appointments fixed to view in the log
         sql2 = "SELECT ID FROM appointments "
-        self.result = c.execute(sql2)
+        self.result = cursor.execute(sql2)
         for self.row in self.result:
             self.id = self.row[0]
             ids.append(self.id)
@@ -119,7 +119,7 @@ class Application:
         else:
             # now we add to the database
             sql = "INSERT INTO 'appointments' (name, age, gender, location, scheduled_time, phone) VALUES(?, ?, ?, ?, ?, ?)"
-            c.execute(sql, (self.val1, self.val2, self.val3,
+            cursor.execute(sql, (self.val1, self.val2, self.val3,
                             self.val4, self.val5, self.val6))
             db.commit()
             tkinter.messagebox.showinfo(

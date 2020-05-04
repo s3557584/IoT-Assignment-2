@@ -5,13 +5,15 @@ import pyttsx3
 
 # connection to database
  utilsObj = DatabaseUtil()
+ with utilsObj.connection.cursor() as db:
+ cursor = db.cursor()
 
 # empty lists to append later
 number = []
 patients = []
 
 sql = "SELECT * FROM appointments"
-res = c.execute(sql)
+res = cursor.execute(sql)
 for r in res:
     ids = r[0]
     name = r[1]
