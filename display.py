@@ -4,7 +4,7 @@ import sqlite3
 import pyttsx3
 
 # connection to database
- utilsObj = DatabaseUtil()
+ tilsObj = DatabaseUtil()
 
 # empty lists to append later
 number = []
