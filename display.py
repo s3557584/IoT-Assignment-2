@@ -2,6 +2,7 @@ from DatabaseUtil import DatabaseUtil
 from tkinter import *
 import sqlite3
 import pyttsx3
+#pip install pyttsx3
 
 # connection to database
 utilsObj = DatabaseUtil()
