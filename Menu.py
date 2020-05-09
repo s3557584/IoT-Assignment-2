@@ -34,7 +34,7 @@ class Menu:
 			encryptedPassword = loginAndRegisterObj.encryptPassword(password)
 			#Storing the details to database
 			with utilsObj.connection.cursor() as cursor:
-				cursor.execute("INSERT INTO users (username,firstname,surname,password) VALUES (%s,%s,%s,%s)", (username,firstname,surname,encryptedPassword))
+				cursor.execute("INSERT INTO user (username,firstname,surname,password) VALUES (%s,%s,%s,%s)", (username,firstname,surname,encryptedPassword))
 			utilsObj.connection.commit()
 			
 			self. Start()
@@ -51,7 +51,7 @@ class Menu:
 	# Menu function   
 	def Menu(self):
 		print("************WELCOME**************")
-		choice = raw_input("""A: Booked Cars\nB: Available Cars\nC: Search Car\nD: Book a Car\nE: Cancel a Booking\nQ: Quit\nPlease enter your choice: """)
+		choice = raw_input("""A: Booked Cars\nB: Search Car\nC: Book a Car\nD: Cancel a Booking\nQ: Quit\nPlease enter your choice: """)
 
 		if choice == "A" or choice == "a":
 			print("List of cars you are currently renting")
@@ -61,19 +61,15 @@ class Menu:
 				print("")
 			self.Menu()
 		elif choice == "B" or choice == "b":
-			self.Menu()
-		elif choice == "C" or choice == "c":
 			search = raw_input("Enter Keyword: ")
 			searchVehicleResult = utilsObj.searchVehicle(search)
 			for i in searchVehicleResult:
 				print(i[1]+" "+i[2])
 				print("")
 			self.Menu()
-		elif choice == "D" or choice == "d":
-			print("D")
+		elif choice == "C" or choice == "c":
 			self.Menu()
-		elif choice == "E" or choice == "e":
-			print("E")
+		elif choice == "D" or choice == "d":
 			self.Menu()
 		elif choice == "Q" or choice == "q":
 			utilsObj.close()
