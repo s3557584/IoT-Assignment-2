@@ -21,20 +21,23 @@ class LoginAndRegister:
         with utilsObj.connection.cursor() as cursor:
             
             # Executing SQL query to authenticate user
-            cursor.execute("SELECT * FROM users WHERE username = (%s)", [(username)])
+            if cursor.execute("SELECT * FROM user WHERE username = (%s)", [(username)]):
             
-            results = cursor.fetchall()
+                results = cursor.fetchall()
             
             # If Username matches fetch encrypted password
-            for i in results:
-                encrypted_password = i[4]
+                for i in results:
+                    encrypted_password = i[4]
                 
-            decryptedPassword = self.decryptPassword(encrypted_password)
+                decryptedPassword = self.decryptPassword(encrypted_password)
             # Calls function to verify encrypted password. 
             # If match returns true so that user is logged in.
-            if decryptedPassword == password:
-                status = True
-                utilsObj.close()
+                if decryptedPassword == password:
+                    status = True
+            else:
+                status = False
+                
+            cursor.close()
             return status
     
     #Function to generate a key for encryption
@@ -71,7 +74,7 @@ class LoginAndRegister:
         while status == True:
             username = raw_input("Please enter a username: ")
             with utilsObj.connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM users WHERE username = (%s)", [(username)])
+                cursor.execute("SELECT * FROM user WHERE username = (%s)", [(username)])
                 #To check if username already exist or not
                 if cursor.fetchall():
                     print("Username already exists please enter another one")
