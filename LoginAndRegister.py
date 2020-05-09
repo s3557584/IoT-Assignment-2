@@ -1,5 +1,11 @@
 from DatabaseUtil import DatabaseUtil
-import hashlib, binascii, os
+import re
+import base64
+import os
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+from cryptography.fernet import Fernet
 utilsObj = DatabaseUtil()
 class LoginAndRegister:
 	
@@ -15,14 +21,15 @@ class LoginAndRegister:
         with utilsObj.connection.cursor() as cursor:
             
             # Executing SQL query to authenticate user
-            cursor.execute("SELECT * FROM users WHERE username = (%s)", [(username)])
+            if cursor.execute("SELECT * FROM user WHERE username = (%s)", [(username)]):
             
-            results = cursor.fetchall()
+                results = cursor.fetchall()
             
             # If Username matches fetch encrypted password
-            for i in results:
-                encrypted_password = i[4]
-            
+                for i in results:
+                    encrypted_password = i[4]
+                
+                decryptedPassword = self.decryptPassword(encrypted_password)
             # Calls function to verify encrypted password. 
             # If match returns true so that user is logged in.
             if self.verify_password(encrypted_password, password):
