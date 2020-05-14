@@ -69,51 +69,60 @@ class LoginAndRegister:
         return decrypted
         
     # Function to take user input and validate username for register
-    def enterUsername(self):
-        status = True
-        while status == True:
-            username = raw_input("Please enter a username: ")
+    def enterUsername(self, username):
+        status = False
+        while status == False:
+            #username = raw_input("Please enter a username: ")
             with utilsObj.connection.cursor() as cursor:
                 cursor.execute("SELECT * FROM user WHERE username = (%s)", [(username)])
                 #To check if username already exist or not
                 if cursor.fetchall():
                     print("Username already exists please enter another one")
+                    status = False
+                    return status
                 #To check if username if left empty or not
                 elif username == "":
                     print("Username can't be empty")
-                else:
                     status = False
-                    return username
+                    return status
+                else:
+                    status = True
+                    return status
     
     #Function to take user input and validate for 1st name and surname for register
-    def enterName(self):
-        status = True 
+    def enterName(self, firstName, surname):
+        status = False 
         #Regex pattern for validation for 1st name and surname
         regex = re.compile('[a-zA-Z]') 
-        while status == True:
-            firstName = raw_input("Enter your first name: ")
-            surname = raw_input("Enter your surname: ")
+        while status == False:
+            #firstName = raw_input("Enter your first name: ")
+            #surname = raw_input("Enter your surname: ")
             #Check if both of the fields are empty or not
             if firstName == "" or surname == "":
                 print("Please enter your first name and surname")
+                status = False
+                return status
             #Check if both of the fields contain only letters or not
             elif regex.search(firstName) == None or regex.search(surname) == None:
                 print("First name and surname can't contain any special characters or numbers")
-            else:    
                 status = False
-                return firstName, surname
+                return status
+            else:    
+                status = True
+                return status
                 
     #Function to take user input and validate for password for register
-    def enterPassword(self):
-        status = True
-        while status == True:
-            password = raw_input("Enter your password\n(Min 6 and Max 20)\n(Must have one number, lowercase, uppercase and special character)\n: ")
-            confirmPassword = raw_input("Confirm password: ")
+    def enterPassword(self, password, confirmPassword):
+        status = False
+        while status == False:
+            #password = raw_input("Enter your password\n(Min 6 and Max 20)\n(Must have one number, lowercase, uppercase and special character)\n: ")
+            #confirmPassword = raw_input("Confirm password: ")
             #Checking if the password entered has met the mentioned requirements
             #And simillar to the confirm password field
             if password == confirmPassword and re.match('^(?=\S{6,20}$)(?=.*?\d)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[^A-Za-z\s0-9])', password):
-                status = False
-                return password
+                status = True
+                return status
             else:
                 print("Either confirm password is not matched or password does not met the requirements")
-                
+                status = False
+                return status

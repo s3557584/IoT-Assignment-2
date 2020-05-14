@@ -33,13 +33,13 @@ class server:
         if count == 2:
             data1, data2, data3 = dataReceived.split(",")
             return data1, data2, data3
-        else:
+        elif count == 3:
             data1, data2, data3, data4 = dataReceived.split(",")
             return data1, data2, data3, data4
     
     #Looking for client connection and establish connection
     def setupConnection(self, s):
-        s.listen(1) # Allows one connection at a time.
+        s.listen(10) # Allows one connection at a time.
         conn, address = s.accept()
         print("Connected to: " + address[0] + ":" + str(address[1]))
         return conn
@@ -81,7 +81,7 @@ class server:
             
             if count == 2:
                 command, username, password = self.process_data_from_client(data)
-            else:
+            elif count == 3:
                 command, vehicleId, username, password = self.process_data_from_client(data)
             
             if command == 'A' or command == "a":
