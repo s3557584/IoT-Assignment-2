@@ -25,16 +25,16 @@ class Menu:
 		firstname = ""
 		surname = ""
 		while True:
-			username = raw_input("Please enter a username: ")
+			username = input("Please enter a username: ")
 			#Calls enterUsername() function to take raw_input from user
 			if loginAndRegisterObj.enterUsername(username) == True:
 				#Calls enterName() function to take raw_input from user
-				firstname = raw_input("Enter your first name: ")
-				surname = raw_input("Enter your surname: ")
+				firstname = input("Enter your first name: ")
+				surname = input("Enter your surname: ")
 				if loginAndRegisterObj.enterName(firstname, surname) == True:
 					#Calls enterPassword() function to take raw_input from user
-					password = raw_input("Enter your password\n(Min 6 and Max 20)\n(Must have one number, lowercase, uppercase and special character)\n: ")
-					confirmPassword = raw_input("Confirm password: ")
+					password = input("Enter your password\n(Min 6 and Max 20)\n(Must have one number, lowercase, uppercase and special character)\n: ")
+					confirmPassword = input("Confirm password: ")
 					if loginAndRegisterObj.enterPassword(password, confirmPassword) == True:
 						#Encrypting the password taken from user raw_input before storing into database
 						encryptedPassword = loginAndRegisterObj.encryptPassword(password)
@@ -48,11 +48,11 @@ class Menu:
 	# Start function (Entry point of the program)
 	def Start(self):
 		print("************IoTAssignment2**************")
-		choice = raw_input("A: Login\nB: Register\nQ: Quit\nPlease enter your choice: ")
+		choice = input("A: Login\nB: Register\nQ: Quit\nPlease enter your choice: ")
 		if choice == "A" or choice == "a":
 			global username 
-			username = raw_input("Enter you username: ")
-			password = raw_input("Please enter your password:")
+			username = input("Enter you username: ")
+			password = input("Please enter your password:")
 			if self.Login(username, password) == True:
 				print("Welcome " + username)
 				# Calls the main menu
@@ -65,7 +65,7 @@ class Menu:
 	# Menu function   
 	def Menu(self):
 		print("************WELCOME**************")
-		choice = raw_input("""A: Booked Cars\nB: Search Car\nC: Book a Car\nD: Cancel a Booking\nQ: Quit\nPlease enter your choice: """)
+		choice = input("""A: Booked Cars\nB: Search Car\nC: Book a Car\nD: Cancel a Booking\nQ: Quit\nPlease enter your choice: """)
 
 		if choice == "A" or choice == "a":
 			print("List of cars you are currently renting")
@@ -75,7 +75,7 @@ class Menu:
 				print("")
 			self.Menu()
 		elif choice == "B" or choice == "b":
-			search = raw_input("Enter Keyword: ")
+			search = input("Enter Keyword: ")
 			searchVehicleResult = utilsObj.searchVehicle(search)
 			for i in searchVehicleResult:
 				print(i[1]+" "+i[2])
@@ -87,7 +87,7 @@ class Menu:
 			self.Menu()
 		elif choice == "Q" or choice == "q":
 			utilsObj.close()
-			sys.exit
+			Sys.exit
 		else:
 			print("You must only select either A,B,C,D or E.")
 			print("Please try again")
