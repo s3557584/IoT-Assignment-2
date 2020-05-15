@@ -1,4 +1,4 @@
 from Menu import Menu
 
 obj = Menu()
-obj.LoginMenu()
+obj.Start()

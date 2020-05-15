@@ -38,7 +38,7 @@ class DatabaseUtil:
     #Search vehicle function
     def searchVehicle(self, userInput):
         with self.connection.cursor() as cursor:
-            cursor.execute("SELECT * FROM vehicle WHERE vehicleBrand LIKE %s OR vehicleModel LIKE %s", [(userInput), (userInput)])
+            cursor.execute("SELECT * FROM vehicle WHERE vehicleBrand LIKE %s OR vehicleModel LIKE %s OR colour LIKE %s OR seats LIKE %s OR cost LIKE %s", [(userInput), (userInput), (userInput), (userInput), (userInput)])
             vehicleResult = cursor.fetchall()
             return vehicleResult
             

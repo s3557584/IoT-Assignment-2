@@ -5,22 +5,14 @@ port = 10300
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host, port))
-def unlockCar(choice):
-    userChoice = choice
-    username = input("Enter Username: ")
-    password = input("Enter Password: ")
-
-    data_to_transfer = "{},{},{}".format(userChoice,username,password)
+def unlockCar(choice, username, password):
+    data_to_transfer = "{},{},{}".format(choice,username,password)
 
     return data_to_transfer
 
-def returnCar(choice):
-    userChoice = choice
-    vehicleId = input("Enter Vehicle ID: ")
-    username = input("Enter Username: ")
-    password = input("Enter Password: ")
+def returnCar(choice, vehicleId, username, password):
 
-    data_to_transfer = "{},{},{},{}".format(userChoice,vehicleId,username,password)
+    data_to_transfer = "{},{},{},{}".format(choice,vehicleId,username,password)
 
     return data_to_transfer
 
@@ -29,14 +21,19 @@ def menu():
         choice = input("""A: Unlock Car\nB: Return Car\nPlease enter your choice: """)
 
         if choice == "A" or choice == "a":
-            data_to_trasfer = unlockCar(choice)
+            username = input("Enter Username: ")
+            password = input("Enter Password: ")
+            data_to_trasfer = unlockCar(choice, username, password)
             if s.send(str.encode(data_to_trasfer)):
                 print("Data sent")
             reply = s.recv(1024) 
             print(reply.decode('utf-8'))
             menu()
         elif choice == "B" or choice == "b":
-            data_to_trasfer = returnCar(choice)
+            vehicleId = input("Enter Vehicle ID: ")
+            username = input("Enter Username: ")
+            password = input("Enter Password: ")
+            data_to_trasfer = returnCar(choice, vehicleId, username, password)
             if s.send(str.encode(data_to_trasfer)):
                 print("Data sent")
             reply = s.recv(1024) 
