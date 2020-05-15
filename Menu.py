@@ -1,3 +1,4 @@
+import sys
 from DatabaseUtil import DatabaseUtil
 from LoginAndRegister import LoginAndRegister
 utilsObj = DatabaseUtil()
@@ -87,7 +88,7 @@ class Menu:
 			self.Menu()
 		elif choice == "Q" or choice == "q":
 			utilsObj.close()
-			Sys.exit
+			sys.exit
 		else:
 			print("You must only select either A,B,C,D or E.")
 			print("Please try again")
