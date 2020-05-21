@@ -1,7 +1,9 @@
 from DatabaseUtil import DatabaseUtil
 from LoginAndRegister import LoginAndRegister
+from Book import Book
 utilsObj = DatabaseUtil()
 loginAndRegisterObj = LoginAndRegister()
+bookObj = Book()
 class Menu:
 	 # Constructor
 	def __init__(self):
@@ -68,8 +70,20 @@ class Menu:
 				print("")
 			self.Menu()
 		elif choice == "C" or choice == "c":
+			user_id = utilsObj.searchUserID(username)
+			vehicle_id = bookObj.getVehicleFromClient()
+			rentable = bookObj.check_rentable(vehicle_id)
+			print(rentable)
+			if rentable == 1:
+				bookObj.book_helper(user_id, vehicle_id)
+				#update vehicle status on the database
+				utilsObj.book(user_id,vehicle_id)
+			else:
+				self.Menu()
 			self.Menu()
 		elif choice == "D" or choice == "d":
+			user_id = utilsObj.searchUserID(username)
+			bookObj.cancel_helper(user_id)
 			self.Menu()
 		elif choice == "Q" or choice == "q":
 			utilsObj.close()
