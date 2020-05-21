@@ -42,6 +42,51 @@ class DatabaseUtil:
             vehicleResult = cursor.fetchall()
             return vehicleResult
             
+    def searchVehicleID(self,userInput):
+        with self.connection.cursor() as cursor:
+            cursor.execute("SELECT vehicleID FROM vehicle WHERE vehicleID = %s", [(userInput)])
+            vehicleIDResult = cursor.fetchall()
+            return vehicleIDResult
+     
+    def searchUserID(self, username):
+        with self.connection.cursor() as cursor:
+            cursor.execute("SELECT userID FROM user WHERE username = %s", [(username)])
+            result = cursor.fetchall()
+            return result
+            
+    def getVehicleStatus(self, vehicle_id):
+        with self.connection.cursor() as cursor:
+            cursor.execute("SELECT rentalStatus FROM vehicle WHERE vehicleID = %s",[(vehicle_id)])
+            res = cursor.fetchall()
+            #convert tuple to int
+            result = int(res[0][0])
+            return result
+    
+    def getUserID(self, vehicle_id):
+        with self.connection.cursor() as cursor:
+            cursor.execute("SELECT UserID FROM vehicle WHERE vehicleID = %s", [(vehicle_id)])
+            result = cursor.fetchall()
+            return result
+            
+    def getGCEID(self, vehicle_id):
+        with self.connection.cursor() as cursor:
+            cursor.execute("SELECT google_calendar_id FROM appointments WHERE vehicle_id = %s", [(vehicle_id)])
+            result = cursor.fetchall()
+            return result
+            
+    def deleteBooking(self, GCEID):
+        with self.connection.cursor() as cursor:
+            cursor.execute("UPDATE appointments SET status = 'cancelled' WHERE google_calendar_id = %s", [(GCEID)])
+            self.connection.commit()
+            return
+    
+    def cancelVehicle(self, vehicle_id):
+        with self.connection.cursor() as cursor:
+            cursor.execute("UPDATE vehicle SET rentalStatus = 1, userID = NULL WHERE vehicleID = (%s)", [(vehicle_id)])
+            self.connection.commit()
+            return
+            
+            
     #Update vehicle table function
     def updateVehicle(self, userInput):
         message = " "
@@ -68,4 +113,19 @@ class DatabaseUtil:
                     self.connection.commit()
                     message = "Vehicle Returned!!"
             return message
+            
+    def book(self,user_id, vehicle_id):
+        #update vehicle table
+        with self.connection.cursor() as cursor:
+            cursor.execute("UPDATE vehicle SET rentalStatus = 0, userID = (%s) WHERE vehicleID = (%s)", [(user_id), (vehicle_id)])
+            self.connection.commit()
+            print("Vehicle Booked!")
+        return
+        
+            
+            
+                    
+            
+        
+            
             
