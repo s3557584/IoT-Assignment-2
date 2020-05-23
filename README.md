@@ -1,10 +1,13 @@
 # IoT-Assignment-2
 
+
 Introduction of the Project Automatic Car Share System
 
 The "Automatic Car Share System" is a console-based system for a company that rents out cars. This system enables the company to make their services available publicly through the internet and also keep records about their services. The world has become a place where there is much technological development; where every single thing has done physically has transformed into computerized form. Nowadays, people's activities have transformed into work done by automated systems. One of which is the main target of this project which is about Carshare System. The method of sharing cars exist back in the previous years, were people rent/share cars for their reasons. Car sharing is essential to many peoples' plan to travel or move from one place to another for business purposes, tour, and visit or holidays; for these reasons, Car sharing is constructive.
+
 It has developed to override the problem prevailing in the practising manual system. This program is supported to eliminate and, in some cases, reduce the hardship faced by the current one. Moreover, this system is designed for a need of the company to carry out operations smoothly and effectively.
-The application reduced as much as possible to avoid errors while entering the data. It also provides error message while entering invalid data. By implemented facial recognition technology to unlock cars and display google calendar booking, No formal knowledge is needed for the user to use this system. Thus, by this all, it proves it is user-friendly. "Automatic Car Share System", as described above, can lead to error-free, secure, reliable and fast management system. It can assist the user to concentrate on their other activities rater to focusing on the record-keeping, to help the organization in better utilization of resources.
+
+The application reduced as much as possible to avoid errors while entering the data. It also provides error message while entering invalid data. By implemented facial recognition authentication technology to unlock the car and display google calendar booking, No formal knowledge is needed for the user to use this system. "Automatic Car Share System", as described above, can patiently lead to a user-friendly, error-free, secure, reliable and fast management system. It can assist the user to concentrate on their other activities rater to focusing on the record-keeping, to help the organization in better utilization of resources.
 
 
 Abstract
@@ -55,7 +58,7 @@ Estiblisted by s3557584 Ching Loo
 	sockets between the MP and the AP
 Estiblisted by s3557584 Ching Loo
 
-	Facial recognition
+	Facial recognition authentication
 Estiblisted by Stuart Wood
 
 
