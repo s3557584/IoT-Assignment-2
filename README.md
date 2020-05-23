@@ -42,7 +42,7 @@ Estiblisted by 3716022 Jason
 Estiblisted by 3716022 Jason
 
 	Database for Customer and Vehicles
-Estiblisted by s3557584 Ching Loo,s3585513 ChengLin BAI,s3716022 Jason & Stuart Wood
+Estiblisted by s3557584 Ching Loo, s3585513 ChengLin BAI, s3716022 Jason & Stuart Wood
 
 Task B
 
