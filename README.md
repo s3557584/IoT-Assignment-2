@@ -12,14 +12,15 @@ The application reduced as much as possible to avoid errors while entering the d
 
 Abstract
 
-This software, called "Automatic Car Share System" is to automate the existing manual system by the help of computerized equipment and full-filled edged computer software, fulfilling their requirements so that their valuable data/information can be stored for a more extended period with easy accessing and manipulation of the same. The required software and hardware are readily available and easy to work with.
+This software, called "Automatic Car Share System" is to automate the existing manual system by the help of computerized equipment and full-filled edged computer software, fulfilling their requirements so that their valuable data/information can be stored for a more extended period with easy accessing and manipulation of the same. The required software and hardware are easy to work with and readily available.
 
 The Goal of the Automatic Car Share System.
 
 The main objective of the "Automatic Car Share System" is to manage the details of car, Customer, (Cancel) Booking. It manages all the information about Car, Users, booking, authorization. So it can be built as an application program which able to reduce the manual work for managing the Car, Customer and tracks all the details about booking and authorization.
 
 
-Functionalities provided by  Automatic Car Share System are as follows:
+
+Functionalities provided by Automatic Car Share System are as follows:
 
 Task A
 
