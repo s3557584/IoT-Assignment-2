@@ -12,3 +12,33 @@ The purpose of "Automatic Car Share System" is to automate the existing manual s
 
 The objective of the project on "Automatic Car Share System."
 The main objective of the project on "Automatic Car Share System" is to manage the details of car, Customer, (Cancel) Booking. It manages all the information about Car, Users, booking, authorization. The purpose of the project is to build an application program to reduce the manual work for managing the Car, Customer and tracks all the details about booking and authorization.
+
+Functionalities provided by the Project Automatic Car Share System are as follows:
+
+Task A
+	user login and register system with validation
+
+	Search a car function
+
+	View history function
+
+	RESTful API
+
+	Book a car function
+
+	Create Cancel booking function
+
+	Database for Customer and Vehicles
+
+Task B
+	a console-based system with unlocking the car and return car function
+
+	Google Maps API to show vehicle locations
+
+	Push notification function
+
+	sockets between the MP and the AP
+
+	Facial recognition
+
+
