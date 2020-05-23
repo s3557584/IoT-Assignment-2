@@ -8,7 +8,7 @@ The application reduced as much as possible to avoid errors while entering the d
 
 Abstract
 
-The purpose of "Automatic Car Share System" is to automate the existing manual system by the help of computerized equipment and full-flef=dged computer software, fulfilling their requirements, so that their valuable data/information can be stored for a more extended period with easy accessing and manipulation of the same. The required software and hardware are readily available and easy to work with
+The purpose of "Automatic Car Share System" is to automate the existing manual system by the help of computerized equipment and full-filled edged computer software, fulfilling their requirements so that their valuable data/information can be stored for a more extended period with easy accessing and manipulation of the same. The required software and hardware are readily available and easy to work with
 
 The objective of the project on "Automatic Car Share System."
 The main objective of the project on "Automatic Car Share System" is to manage the details of car, Customer, (Cancel) Booking. It manages all the information about Car, Users, booking, authorization. The purpose of the project is to build an application program to reduce the manual work for managing the Car, Customer and tracks all the details about booking and authorization.
