@@ -2,16 +2,19 @@
 
 Introduction of the Project Automatic Car Share System
 
-The "Automatic Car Share System" has been developed to override the problem prevailing in the practising manual system. This program is supported to eliminate and, in some cases, reduce the hardship faced by the current one. Moreover, this system is designed for a need of the company to carry out operations smoothly and effectively.
-
+The "Automatic Car Share System" is a console-based system for a company that rents out cars. This system enables the company to make their services available publicly through the internet and also keep records about their services. The world has become a place where there is much technological development; where every single thing has done physically has transformed into computerized form. Nowadays, people's activities have transformed into work done by automated systems. One of which is the main target of this project which is about Carshare System. The method of sharing cars exist back in the previous years, were people rent/share cars for their reasons. Car sharing is essential to many peoples' plan to travel or move from one place to another for business purposes, tour, and visit or holidays; for these reasons, Car sharing is constructive.
+It has developed to override the problem prevailing in the practising manual system. This program is supported to eliminate and, in some cases, reduce the hardship faced by the current one. Moreover, this system is designed for a need of the company to carry out operations smoothly and effectively.
 The application reduced as much as possible to avoid errors while entering the data. It also provides error message while entering invalid data. By implemented facial recognition technology to unlock cars and display google calendar booking, No formal knowledge is needed for the user to use this system. Thus, by this all, it proves it is user-friendly. "Automatic Car Share System", as described above, can lead to error-free, secure, reliable and fast management system. It can assist the user to concentrate on their other activities rater to focusing on the record-keeping, to help the organization in better utilization of resources.
+
 
 Abstract
 
-The purpose of "Automatic Car Share System" is to automate the existing manual system by the help of computerized equipment and full-filled edged computer software, fulfilling their requirements so that their valuable data/information can be stored for a more extended period with easy accessing and manipulation of the same. The required software and hardware are readily available and easy to work with
+This software, called "Automatic Car Share System" is to automate the existing manual system by the help of computerized equipment and full-filled edged computer software, fulfilling their requirements so that their valuable data/information can be stored for a more extended period with easy accessing and manipulation of the same. The required software and hardware are readily available and easy to work with.
 
-The objective of the project on "Automatic Car Share System."
+The Goal of the Automatic Car Share System.
+
 The main objective of the project on "Automatic Car Share System" is to manage the details of car, Customer, (Cancel) Booking. It manages all the information about Car, Users, booking, authorization. The purpose of the project is to build an application program to reduce the manual work for managing the Car, Customer and tracks all the details about booking and authorization.
+
 
 Functionalities provided by the Project Automatic Car Share System are as follows:
 
@@ -55,3 +58,5 @@ Estiblisted by s3557584 Ching Loo
 	Facial recognition
 Estiblisted by Stuart Wood
 
+
+https://trello.com/b/8OgiFLVz/assignment-2
