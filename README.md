@@ -16,10 +16,10 @@ This software, called "Automatic Car Share System" is to automate the existing m
 
 The Goal of the Automatic Car Share System.
 
-The main objective of the project on "Automatic Car Share System" is to manage the details of car, Customer, (Cancel) Booking. It manages all the information about Car, Users, booking, authorization. The purpose of the project is to build an application program to reduce the manual work for managing the Car, Customer and tracks all the details about booking and authorization.
+The main objective of the "Automatic Car Share System" is to manage the details of car, Customer, (Cancel) Booking. It manages all the information about Car, Users, booking, authorization. So it can be built as an application program which able to reduce the manual work for managing the Car, Customer and tracks all the details about booking and authorization.
 
 
-Functionalities provided by the Project Automatic Car Share System are as follows:
+Functionalities provided by  Automatic Car Share System are as follows:
 
 Task A
 
@@ -42,7 +42,7 @@ Estiblisted by 3716022 Jason
 Estiblisted by 3716022 Jason
 
 	Database for Customer and Vehicles
-Estiblisted by s3557584 Ching Loo, s3585513 ChengLin BAI, s3716022 Jason & Stuart Wood
+Estiblisted by s3557584 Ching Loo, s3585513 ChengLin BAI, s3716022 Jason & s3603463 Stuart Wood
 
 Task B
 
@@ -59,7 +59,8 @@ Estiblisted by s3557584 Ching Loo
 Estiblisted by s3557584 Ching Loo
 
 	Facial recognition authentication
-Estiblisted by Stuart Wood
+Estiblisted by s3603463 Stuart Wood
 
 
+Check the Trello board here:
 https://trello.com/b/8OgiFLVz/assignment-2
