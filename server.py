@@ -1,4 +1,5 @@
 import socket
+import face_recognition
 from pushbullet import Pushbullet
 from LoginAndRegister import LoginAndRegister
 from DatabaseUtil import DatabaseUtil
@@ -15,7 +16,7 @@ class server:
     #Constructor
     def __init__(self):
         pass
-    
+
     #Initiate socket
     def setupServer(self, host, port):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -26,7 +27,8 @@ class server:
             print(msg)
         print("Socket bind comlete.")
         return s
-    
+
+
     #Function to proccess data from client
     def process_data_from_client(self, dataReceived):
         count = dataReceived.count(',')
@@ -36,14 +38,15 @@ class server:
         else:
             data1, data2, data3, data4 = dataReceived.split(",")
             return data1, data2, data3, data4
-    
+
     #Looking for client connection and establish connection
     def setupConnection(self, s):
         s.listen(1) # Allows one connection at a time.
         conn, address = s.accept()
         print("Connected to: " + address[0] + ":" + str(address[1]))
         return conn
-    
+
+
     #Unlock Vehicle function
     def unlockVehicle(self, username, password):
         if obj.authenticate(username, password) == True:
@@ -55,7 +58,43 @@ class server:
         else:
             reply = "Incorrect Username or Password"
         return reply
-    
+
+    # Unlock Vehicle function with face
+    def unlockFacialrec(self, username, picture):
+        cam = cv2.VideoCapture(0)
+
+        cv2.namedWindow("test")
+
+        while True:
+            ret, frame = cam.read()
+            cv2.imshow("test", frame)
+            if not ret:
+                break
+            k = cv2.waitKey(1)
+
+            if k % 256 == 27:
+                # ESC pressed
+                print("Escape hit, closing...")
+                cam.release()
+                cv2.destroyAllWindows()
+                break
+
+
+            known_image = face_recognition.load_image_file("/home/pi/Desktop/Assignment2/image/ching.jpg")
+            unknown_image = face_recognition.load_image_file("cropped.jpg")
+            authenticatedUser_encoding = face_recognition.face_encodings(known_image)[0]
+            unknown_encoding = face_recognition.face_encodings(unknown_image)[0]
+            results = face_recognition.compare_faces([authenticatedUser_encoding], unknown_encoding)
+            if results == true:
+                pb = Pushbullet("o.Cj5JI5pc44aSBeGILk4y9ndEBiLzyWUf")
+                print(pb.devices)
+                dev = pb.get_device('HUAWEI TAS-L29'
+                push = dev.push_note("NOTICE: ", "Vehicle Unlocked!!")
+                reply = "Vehicle Unlocked!!"
+             else:
+                reply = "Sorry, we don't recognise your face"
+             return reply
+
     #Return Vehicle function
     def returnVehicle(self, vehicleID, username, password):
         if obj.authenticate(username, password) == True:
@@ -65,7 +104,7 @@ class server:
         else:
             reply = "Incorrect Username or Password"
         return reply
-    
+
     #Main functionality of the server
     def dataTransfer(self, conn):
         # A big loop that sends/receives data until told not to.
@@ -78,12 +117,12 @@ class server:
             vehicleId = " "
             username = " "
             password = " "
-            
+
             if count == 2:
                 command, username, password = self.process_data_from_client(data)
             else:
                 command, vehicleId, username, password = self.process_data_from_client(data)
-            
+
             if command == 'A' or command == "a":
                 #Calls the unlock vehicle function
                 reply = self.unlockVehicle(username, password)

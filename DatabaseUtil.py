@@ -21,6 +21,13 @@ class DatabaseUtil:
     # Function to close the database connection
     def close(self):
         self.connection.close()
+
+    #Retrieve user picture
+    def userpicture(self, username):
+        userID=0
+        with self.connection.cursor() as cursor:
+            cursor.execute("SELECT Picture FROM user where username = (%s)", [(username)])
+
         
     #Function to display all vehicles the user is renting
     def getVehicle(self, username):
