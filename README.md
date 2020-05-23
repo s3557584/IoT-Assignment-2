@@ -16,29 +16,32 @@ The main objective of the project on "Automatic Car Share System" is to manage t
 Functionalities provided by the Project Automatic Car Share System are as follows:
 
 Task A
+
 	user login and register system with validation
-
+Estiblisted by s3557584 Ching Loo, s3585513 ChengLin BAI & s3716022 Jason
 	Search a car function
-
+Estiblisted by s3557584 Ching Loo
 	View history function
-
+Estiblisted by s3557584 Ching Loo
 	RESTful API
-
+Estiblisted by s3557584 Ching Loo
 	Book a car function
-
+Estiblisted by 3716022 Jason
 	Create Cancel booking function
-
+Estiblisted by 3716022 Jason
 	Database for Customer and Vehicles
+Estiblisted by s3557584 Ching Loo,s3585513 ChengLin BAI,s3716022 Jason & Stuart Wood
 
 Task B
+
 	a console-based system with unlocking the car and return car function
-
+Estiblisted by s3557584 Ching Loo
 	Google Maps API to show vehicle locations
-
+Estiblisted by s3557584 Ching Loo & s3585513 ChengLin BAI
 	Push notification function
-
+Estiblisted by s3557584 Ching Loo
 	sockets between the MP and the AP
-
+Estiblisted by s3557584 Ching Loo
 	Facial recognition
-
+Estiblisted by Stuart Wood
 
