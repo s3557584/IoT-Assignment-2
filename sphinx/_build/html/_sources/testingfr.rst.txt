@@ -1,0 +1,7 @@
+testingfr module
+================
+
+.. automodule:: testingfr
+   :members:
+   :undoc-members:
+   :show-inheritance:
