@@ -8,13 +8,35 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.fernet import Fernet
 utilsObj = DatabaseUtil()
 class LoginAndRegister:
+    """
+    LoginAndRegister class. 
+    
+    Mainly handles user authentication and register. 
+    This class also handles the encryption and decryption of passwords.
+    """
 	
-	# Constructor
     def __init__(self):
+        """
+        Empty Constructor
+        """
         pass
         
-	# Function to authenticate user logging in
+	
     def authenticate(self, username, password):
+        """
+        Task A
+        
+        Written by: Ching Loo(s3557584)
+        
+        Function to authenticate user logging in
+        
+        Parameters:
+                username(str): Username from user input
+                password(str): Password from user input
+		
+        Returns:
+                status(boolean): Indicator with true if verified or false if unverified 
+        """
         status = False 
         encrypted_password = ""
         
@@ -30,6 +52,7 @@ class LoginAndRegister:
                     encrypted_password = i[4]
                 
                 decryptedPassword = self.decryptPassword(encrypted_password)
+            
             # Calls function to verify encrypted password. 
             # If match returns true so that user is logged in.
                 if decryptedPassword == password:
@@ -40,46 +63,96 @@ class LoginAndRegister:
             cursor.close()
             return status
     
-    #Function to generate a key for encryption
     def generate_key(self):
-        password_provided = "password"
-        password = password_provided.encode()
+        """
+        Task A
+        
+        Written by: Ching Loo(s3557584)
+        
+        Function to generate a key for encryption
+        
+        Parameters:
+                None
+		
+        Returns:
+                Key: Key used for encryption and decryption
+        """
+        password = b"password"
         salt = b'Oy\nK5o\x15\xa8ex2U\x94A\xb9\x8c'
         kdf = PBKDF2HMAC(
-            algorithm=hashes.SHA256(),
-            length=32,
-            salt=salt,
-            iterations=100000,
-            backend=default_backend()
-        )
+                algorithm=hashes.SHA256(),
+                length=32,
+                salt=salt,
+                iterations=100000,
+                backend=default_backend()
+            )
         key = base64.urlsafe_b64encode(kdf.derive(password))
         return key
     
-    # Function to encrypt password
     def encryptPassword(self, password):
-        message = password.encode()
+        """
+        Task A
+        
+        Written by: Ching Loo(s3557584)
+        
+        Function to encrypt password
+        
+        Parameters:
+                password(str): Plaintext password from user input
+            
+        Returns:
+                encrypted(byte): Encrypted password
+        """
         f = Fernet(self.generate_key())
-        encrypted = f.encrypt(message)
+        encrypted = f.encrypt(password.encode('utf-8'))
         return encrypted
         
-    # Function to decrypt encrypted password
     def decryptPassword(self, encrypted_password):
-        f = Fernet(self.generate_key())
-        decrypted = f.decrypt(encrypted_password)
-        return decrypted
+        """
+        Task A
         
-    # Function to take user input and validate username for register
+        Written by: Ching Loo(s3557584)
+        
+        Function to decrypt encrypted password
+        
+        Parameters:
+                encrypted_password(byte): ciphertext password from database
+            
+        Returns:
+                password(str): plaintext password
+        """
+        f = Fernet(self.generate_key())
+        toDecrypt = encrypted_password.encode('utf-8')
+        decrypted = f.decrypt(toDecrypt)
+        password = decrypted.decode('utf-8')
+        
+        return password
+        
     def enterUsername(self, username):
+        """
+        Task A
+        
+        Written by:Jason, Ching(s3557584), Lin
+        
+        Function to take user input and validate username for register
+        
+        Parameters:
+                username(str): username from user input
+            
+        Returns:
+                status(boolean): Indicator with true if verified or false if unverified 
+        """
         status = False
         while status == False:
-            #username = raw_input("Please enter a username: ")
             with utilsObj.connection.cursor() as cursor:
                 cursor.execute("SELECT * FROM user WHERE username = (%s)", [(username)])
+                
                 #To check if username already exist or not
                 if cursor.fetchall():
                     print("Username already exists please enter another one")
                     status = False
                     return status
+                
                 #To check if username if left empty or not
                 elif username == "":
                     print("Username can't be empty")
@@ -89,19 +162,38 @@ class LoginAndRegister:
                     status = True
                     return status
     
-    #Function to take user input and validate for 1st name and surname for register
+    
+    #Written by:Jason, Ching, Lin
+    """
+    Function to take user input and validate for 1st name and surname for register
+    """
     def enterName(self, firstName, surname):
+        """
+        Task A
+        
+        Written by:Jason, Ching(s3557584), Lin
+        
+        Function to take user input and validate first name and sur name for register
+        
+        Parameters:
+                firstname(str): first name from user input
+                surname(str): sur name from user input
+            
+        Returns:
+                status(boolean): Indicator with true if verified or false if unverified 
+        """
         status = False 
+        
         #Regex pattern for validation for 1st name and surname
         regex = re.compile('[a-zA-Z]') 
         while status == False:
-            #firstName = raw_input("Enter your first name: ")
-            #surname = raw_input("Enter your surname: ")
+        
             #Check if both of the fields are empty or not
             if firstName == "" or surname == "":
                 print("Please enter your first name and surname")
                 status = False
                 return status
+            
             #Check if both of the fields contain only letters or not
             elif regex.search(firstName) == None or regex.search(surname) == None:
                 print("First name and surname can't contain any special characters or numbers")
@@ -111,12 +203,24 @@ class LoginAndRegister:
                 status = True
                 return status
                 
-    #Function to take user input and validate for password for register
     def enterPassword(self, password, confirmPassword):
+        """
+        Task A
+        
+        Written by:Jason, Ching(s3557584), Lin
+        
+        Function to take user input and validate for password for register
+        
+        Parameters:
+                password(str): password from user input
+                confirmPassword(str): confirm password from user input
+            
+        Returns:
+                status(boolean): Indicator with true if verified or false if unverified 
+        """
         status = False
         while status == False:
-            #password = raw_input("Enter your password\n(Min 6 and Max 20)\n(Must have one number, lowercase, uppercase and special character)\n: ")
-            #confirmPassword = raw_input("Confirm password: ")
+            
             #Checking if the password entered has met the mentioned requirements
             #And simillar to the confirm password field
             if password == confirmPassword and re.match('^(?=\S{6,20}$)(?=.*?\d)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[^A-Za-z\s0-9])', password):
