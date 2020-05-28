@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>FaceAuthentication module &#8212; IoTAssignment2  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-FaceAuthentication">
+<span id="faceauthentication-module"></span><h1>FaceAuthentication module<a class="headerlink" href="#module-FaceAuthentication" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="FaceAuthentication.FaceAuthentication">
+<em class="property">class </em><code class="sig-prename descclassname">FaceAuthentication.</code><code class="sig-name descname">FaceAuthentication</code><a class="headerlink" href="#FaceAuthentication.FaceAuthentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Task D</p>
+<p>FaceAuthentication class</p>
+<p>Mainly handles the face authentication</p>
+<dl class="py method">
+<dt id="FaceAuthentication.FaceAuthentication.captureImage">
+<code class="sig-name descname">captureImage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#FaceAuthentication.FaceAuthentication.captureImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function uses the local machine’s webcam and take a picture of the user</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="FaceAuthentication.FaceAuthentication.faceAuthenticate">
+<code class="sig-name descname">faceAuthenticate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">userInput</span></em>, <em class="sig-param"><span class="n">imgName</span></em>, <em class="sig-param"><span class="n">username</span></em><span class="sig-paren">)</span><a class="headerlink" href="#FaceAuthentication.FaceAuthentication.faceAuthenticate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main face authenticate function</p>
+<dl class="simple">
+<dt>Parameter:</dt><dd><p>userInput(str): Takes in user’s choice of using webcam or image to authenticate
+imgName(str): Takes in the image name that the user is using
+username(str): User’s username</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if user is authenticated False if its not</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>status(boolean)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="FaceAuthentication.FaceAuthentication.loadImage">
+<code class="sig-name descname">loadImage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">imgName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#FaceAuthentication.FaceAuthentication.loadImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function loads the user’s image from local image folder</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">IoTAssignment2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Ching, Jason, Stuart and Lin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/FaceAuthentication.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

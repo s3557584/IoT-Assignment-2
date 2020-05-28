@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>googlemaps module &#8212; IoTAssignment2  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-googlemaps">
+<span id="googlemaps-module"></span><h1>googlemaps module<a class="headerlink" href="#module-googlemaps" title="Permalink to this headline">¶</a></h1>
+<p>Task B</p>
+<p>Written By: Ching(s3557584) and Lin</p>
+<p>A Web application that shows Google Maps around vehicles, using
+the Flask framework, and the Google Maps API.</p>
+<dl class="py class">
+<dt id="googlemaps.Vehicle">
+<em class="property">class </em><code class="sig-prename descclassname">googlemaps.</code><code class="sig-name descname">Vehicle</code><a class="headerlink" href="#googlemaps.Vehicle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Vehicle Class.</p>
+<p>Fetch vehicle locations from database and stores it in a list</p>
+<dl class="py attribute">
+<dt id="googlemaps.Vehicle.latlng">
+<code class="sig-name descname">latlng</code><em class="property"> = [[-37.806152, 144.95787, 'Altis'], [-37.803913, 144.964859, 'Civic'], [None, None, 'CRZ']]</em><a class="headerlink" href="#googlemaps.Vehicle.latlng" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="googlemaps.Vehicle.obj">
+<code class="sig-name descname">obj</code><em class="property"> = &lt;DatabaseUtil.DatabaseUtil object&gt;</em><a class="headerlink" href="#googlemaps.Vehicle.obj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="googlemaps.Vehicle.results">
+<code class="sig-name descname">results</code><em class="property"> = ((-37.806152, 144.95787, 'Altis'), (-37.803913, 144.964859, 'Civic'), (None, None, 'CRZ'))</em><a class="headerlink" href="#googlemaps.Vehicle.results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="googlemaps.open_browser">
+<code class="sig-prename descclassname">googlemaps.</code><code class="sig-name descname">open_browser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#googlemaps.open_browser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to open browser when launched</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="googlemaps.show_vehicle">
+<code class="sig-prename descclassname">googlemaps.</code><code class="sig-name descname">show_vehicle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#googlemaps.show_vehicle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that takes the data from Vehicle class and passes them to the html template</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">IoTAssignment2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Ching, Jason, Stuart and Lin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/googlemaps.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

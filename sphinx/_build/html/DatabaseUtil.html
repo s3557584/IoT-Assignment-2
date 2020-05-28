@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>DatabaseUtil module &#8212; IoTAssignment2  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-DatabaseUtil">
+<span id="databaseutil-module"></span><h1>DatabaseUtil module<a class="headerlink" href="#module-DatabaseUtil" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="DatabaseUtil.DatabaseUtil">
+<em class="property">class </em><code class="sig-prename descclassname">DatabaseUtil.</code><code class="sig-name descname">DatabaseUtil</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">connection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Task A and B</p>
+<p>DatabaseUtil class.</p>
+<p>This class mainly handles connection to the database.
+This class also handles fetching and editing data from the database</p>
+<dl class="py attribute">
+<dt id="DatabaseUtil.DatabaseUtil.DATABASE">
+<code class="sig-name descname">DATABASE</code><em class="property"> = 'IoTAssignment2'</em><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.DATABASE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="DatabaseUtil.DatabaseUtil.HOST">
+<code class="sig-name descname">HOST</code><em class="property"> = '35.189.29.67'</em><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.HOST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="DatabaseUtil.DatabaseUtil.PASSWORD">
+<code class="sig-name descname">PASSWORD</code><em class="property"> = 'password'</em><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.PASSWORD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="DatabaseUtil.DatabaseUtil.USER">
+<code class="sig-name descname">USER</code><em class="property"> = 'root'</em><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.USER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.book">
+<code class="sig-name descname">book</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">vehicle_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.book" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Jason</p>
+<p>Function to book and make changes to the rental status in db</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vehicle_id</strong> – vehicle id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.cancelVehicle">
+<code class="sig-name descname">cancelVehicle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vehicle_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.cancelVehicle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Jason</p>
+<p>Function to delete booking and make changes to the status in the db</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vehicle_id</strong> (<em>int</em>) – google calander id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.close">
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to close the database connection</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.deleteBooking">
+<code class="sig-name descname">deleteBooking</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">GCEID</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.deleteBooking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Jason</p>
+<p>Function to delete booking and make changes to the status in the db</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vehicle_id</strong> (<em>int</em>) – google calander id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.getGCEID">
+<code class="sig-name descname">getGCEID</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vehicle_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.getGCEID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Jason</p>
+<p>Function to get google calandar id from db</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vehicle_id</strong> – vehicle id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.getImageName">
+<code class="sig-name descname">getImageName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">userInput</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.getImageName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.getLocation">
+<code class="sig-name descname">getLocation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.getLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Ching Loo(s3557584)</p>
+<p>Task B Google Maps API</p>
+<p>Get location of every vehicle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>None</strong> – <dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>Result from the excecuted SQL query</p>
+</dd>
+<dt class="field-even">rtype</dt>
+<dd class="field-even"><p>vehicleResult(tuple)</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.getUserID">
+<code class="sig-name descname">getUserID</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vehicle_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.getUserID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Jason</p>
+<p>Function to get user_id(foreign key in vehicle table) from db</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vehicle_id</strong> – vehicle id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.getUsername">
+<code class="sig-name descname">getUsername</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">userid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.getUsername" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Ching Loo(s3557584)</p>
+<p>Function to get username from db</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>userid</strong> – User id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.getVehicle">
+<code class="sig-name descname">getVehicle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.getVehicle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Ching Loo(s3557584)</p>
+<p>Task A</p>
+<p>Function to display all vehicles the user is renting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>connection</strong> – username from currently logged in user</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.getVehicleModel">
+<code class="sig-name descname">getVehicleModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vehicleId</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.getVehicleModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Ching Loo(s3557584)</p>
+<p>Function to get vehicle model from db</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vehicleId</strong> – vehicle id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.getVehicleStatus">
+<code class="sig-name descname">getVehicleStatus</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vehicle_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.getVehicleStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Jason</p>
+<p>Function to get vehicle rental status from db</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vehicle_id</strong> – vehicle id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.searchUserID">
+<code class="sig-name descname">searchUserID</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.searchUserID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Jason</p>
+<p>Function to get user id from db</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>username</strong> – username</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.searchVehicle">
+<code class="sig-name descname">searchVehicle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">userInput</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.searchVehicle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Ching Loo(s3557584)</p>
+<p>Task A</p>
+<p>Search vehicle function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>userInput</strong> – Keyword from user input</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.searchVehicleID">
+<code class="sig-name descname">searchVehicleID</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">userInput</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.searchVehicleID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Jason</p>
+<p>Function to get vehicle id from db</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>userInput</strong> – vehicle id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="DatabaseUtil.DatabaseUtil.updateVehicle">
+<code class="sig-name descname">updateVehicle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">userInput</span></em><span class="sig-paren">)</span><a class="headerlink" href="#DatabaseUtil.DatabaseUtil.updateVehicle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Written by: Ching Loo(s3557584)</p>
+<p>Task B</p>
+<p>Update vehicle table function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>userInput</strong> (<em>str</em>) – vehicle if from user input</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result from the excecuted SQL query</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>vehicleResult(tuple)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">IoTAssignment2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Ching, Jason, Stuart and Lin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/DatabaseUtil.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

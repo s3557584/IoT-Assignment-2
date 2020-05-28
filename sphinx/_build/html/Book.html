@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Book module &#8212; IoTAssignment2  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-Book">
+<span id="book-module"></span><h1>Book module<a class="headerlink" href="#module-Book" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="Book.Book">
+<em class="property">class </em><code class="sig-prename descclassname">Book.</code><code class="sig-name descname">Book</code><a class="headerlink" href="#Book.Book" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Task A</p>
+<p>Written By: Jason</p>
+<p>Book class</p>
+<p>This class mainly manages the booking vehicle and cancel booking of vehicles</p>
+<dl class="py method">
+<dt id="Book.Book.book_helper">
+<code class="sig-name descname">book_helper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">vehicle_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Book.Book.book_helper" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is to help user book the chosen car.</p>
+<p>Takes in rent and return dates.</p>
+<p>Makes necessary changes to db.</p>
+<dl class="simple">
+<dt>Parameter:</dt><dd><p>vehicle_id(int): Takes in vehicle id
+user_id(int): Takes in user_id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Book.Book.cancel_helper">
+<code class="sig-name descname">cancel_helper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Book.Book.cancel_helper" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function cancels a booking</p>
+<dl class="simple">
+<dt>Parameter:</dt><dd><p>user_id(int): Takes in user id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Book.Book.check_rentable">
+<code class="sig-name descname">check_rentable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vehicle_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Book.Book.check_rentable" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is to check if the vehicle is rentable or not</p>
+<dl class="simple">
+<dt>Parameter:</dt><dd><p>vehicle_id(int): Takes in vehicle id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Book.Book.getVehicleFromClient">
+<code class="sig-name descname">getVehicleFromClient</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Book.Book.getVehicleFromClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to check if vehicle exists</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">IoTAssignment2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Ching, Jason, Stuart and Lin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Book.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

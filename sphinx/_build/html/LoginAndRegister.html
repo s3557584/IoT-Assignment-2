@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>LoginAndRegister module &#8212; IoTAssignment2  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-LoginAndRegister">
+<span id="loginandregister-module"></span><h1>LoginAndRegister module<a class="headerlink" href="#module-LoginAndRegister" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="LoginAndRegister.LoginAndRegister">
+<em class="property">class </em><code class="sig-prename descclassname">LoginAndRegister.</code><code class="sig-name descname">LoginAndRegister</code><a class="headerlink" href="#LoginAndRegister.LoginAndRegister" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>LoginAndRegister class.</p>
+<p>Mainly handles user authentication and register.
+This class also handles the encryption and decryption of passwords.</p>
+<dl class="py method">
+<dt id="LoginAndRegister.LoginAndRegister.authenticate">
+<code class="sig-name descname">authenticate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">password</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LoginAndRegister.LoginAndRegister.authenticate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Task A</p>
+<p>Written by: Ching Loo(s3557584)</p>
+<p>Function to authenticate user logging in</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> (<em>str</em>) – Username from user input</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – Password from user input</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Indicator with true if verified or false if unverified</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>status(boolean)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LoginAndRegister.LoginAndRegister.decryptPassword">
+<code class="sig-name descname">decryptPassword</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">encrypted_password</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LoginAndRegister.LoginAndRegister.decryptPassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Task A</p>
+<p>Written by: Ching Loo(s3557584)</p>
+<p>Function to decrypt encrypted password</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>encrypted_password</strong> (<em>byte</em>) – ciphertext password from database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>plaintext password</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>password(str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LoginAndRegister.LoginAndRegister.encryptPassword">
+<code class="sig-name descname">encryptPassword</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">password</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LoginAndRegister.LoginAndRegister.encryptPassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Task A</p>
+<p>Written by: Ching Loo(s3557584)</p>
+<p>Function to encrypt password</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>password</strong> (<em>str</em>) – Plaintext password from user input</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Encrypted password</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>encrypted(byte)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LoginAndRegister.LoginAndRegister.enterName">
+<code class="sig-name descname">enterName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">firstName</span></em>, <em class="sig-param"><span class="n">surname</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LoginAndRegister.LoginAndRegister.enterName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Task A</p>
+<p>Written by:Jason, Ching(s3557584), Lin</p>
+<p>Function to take user input and validate first name and sur name for register</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>firstname</strong> (<em>str</em>) – first name from user input</p></li>
+<li><p><strong>surname</strong> (<em>str</em>) – sur name from user input</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Indicator with true if verified or false if unverified</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>status(boolean)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LoginAndRegister.LoginAndRegister.enterPassword">
+<code class="sig-name descname">enterPassword</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">password</span></em>, <em class="sig-param"><span class="n">confirmPassword</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LoginAndRegister.LoginAndRegister.enterPassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Task A</p>
+<p>Written by:Jason, Ching(s3557584), Lin</p>
+<p>Function to take user input and validate for password for register</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> (<em>str</em>) – password from user input</p></li>
+<li><p><strong>confirmPassword</strong> (<em>str</em>) – confirm password from user input</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Indicator with true if verified or false if unverified</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>status(boolean)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LoginAndRegister.LoginAndRegister.enterUsername">
+<code class="sig-name descname">enterUsername</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LoginAndRegister.LoginAndRegister.enterUsername" title="Permalink to this definition">¶</a></dt>
+<dd><p>Task A</p>
+<p>Written by:Jason, Ching(s3557584), Lin</p>
+<p>Function to take user input and validate username for register</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>username</strong> (<em>str</em>) – username from user input</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Indicator with true if verified or false if unverified</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>status(boolean)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LoginAndRegister.LoginAndRegister.generate_key">
+<code class="sig-name descname">generate_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LoginAndRegister.LoginAndRegister.generate_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Task A</p>
+<p>Written by: Ching Loo(s3557584)</p>
+<p>Function to generate a key for encryption</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Key used for encryption and decryption</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Key</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">IoTAssignment2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Ching, Jason, Stuart and Lin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/LoginAndRegister.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
